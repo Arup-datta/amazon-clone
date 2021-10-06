@@ -24,11 +24,16 @@ function Home() {
                 <div className="home__row">
                     {/* List of the products are rendered */}
                     {/* this one will have three components */}
+                    <Product />
+                    <Product />
+                    <Product />
+                    <Product />
                 </div>
 
                 <div className="home__row">
                     {/* List of the products are rendered */}
                     {/* this one will have single component */}
+                    <Product />
                 </div>
 
                 
