@@ -1,5 +1,5 @@
 
-import './App.css';
+import './app.css';
 
 import Header from './components/Header';
 import Home from './components/Home';
@@ -11,24 +11,27 @@ function App() {
   return (
     <Router>
       <div className="app">
-        {/* Header - top part of the site*/}
-        {/* Home - rest of the code */}
-        <Switch>
 
-          <Route path = "/checkout">
-              <Header/>
-              <Checkout/>
-          </Route>
+        <body>
+       
+          <Switch>
 
-
-          <Route path = "/">
-            {/* Default route */}
-             <Header />
-             <Home/>
-          </Route>
+            <Route path = "/checkout">
+                <Header/>
+                <Checkout/>
+            </Route>
 
 
-        </Switch>
+            <Route path = "/">
+              {/* Default route */}
+              <Header />
+              <Home/>
+            </Route>
+
+
+          </Switch>
+
+        </body>
   
       </div>
     </Router>

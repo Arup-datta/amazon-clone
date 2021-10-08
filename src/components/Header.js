@@ -4,12 +4,27 @@ import SearchIcon from '@mui/icons-material/Search';
 // import DeleteIcon from '@mui/icons-material/Delete';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 
+import {useHistory} from 'react-router-dom';
+
 function Header() {
+
+    let history = useHistory();
+
+    function handleClick() {
+       /// console.log("Clicked!");
+        history.push("/checkout");
+    }
+
+    function homeClick() {
+        history.push("/");
+    }
+
     return (
         <div className = "header">
             <img
              className = "header__logo"
              src = "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+             onClick = {homeClick}
                 // logo
              />
 
@@ -52,7 +67,7 @@ function Header() {
                 </div>
 
                 <div className ="header__optionBasket">
-                    <ShoppingBasketIcon/>
+                    <ShoppingBasketIcon onClick = {handleClick}/>
 
                     <span className="header__optionLineTwo header__basketCount">
                         0
