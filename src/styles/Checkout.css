@@ -18,3 +18,19 @@
     /* margin-left: 20px; */
     margin: 20px;
 }
+
+.checkout__title {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+}
+
+
+/* after 1:20 pm */
+.checkout__row {
+    margin-left: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}

@@ -6,6 +6,9 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 
 import {useHistory} from 'react-router-dom';
 
+import {useState, useContext} from 'react';
+import { ProductContext } from './ProductProvider';
+
 function Header() {
 
     let history = useHistory();
@@ -18,6 +21,8 @@ function Header() {
     function homeClick() {
         history.push("/");
     }
+
+    // const [state, setState] = useContext(ProductContext);
 
     return (
         <div className = "header">
@@ -70,7 +75,9 @@ function Header() {
                     <ShoppingBasketIcon onClick = {handleClick}/>
 
                     <span className="header__optionLineTwo header__basketCount">
-                        0
+                     {/* {state.length}
+                       */}
+                       0
                     </span>
                 </div>
 

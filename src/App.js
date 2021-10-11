@@ -7,34 +7,35 @@ import Home from './components/Home';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Checkout from './components/Checkout';
 
+import ProductProvider from './components/ProductProvider';
+
 function App() {
   return (
     <Router>
-      <div className="app">
 
-        <body>
-       
-          <Switch>
+      <ProductProvider>
+        <div className="app">
 
-            <Route path = "/checkout">
-                <Header/>
-                <Checkout/>
-            </Route>
+          <body>
 
+          <Header/>   
+        
+            <Switch>
 
-            <Route path = "/">
-              {/* Default route */}
-              <Header />
-              <Home/>
-            </Route>
+              <Route path = "/checkout">
+                  <Checkout/>
+              </Route>
 
-
-          </Switch>
-
-        </body>
-  
-      </div>
-    </Router>
+              <Route path = "/">
+                {/* Default route */}
+                <Home/>
+              </Route>
+              
+            </Switch>
+          </body>
+        </div>
+      </ProductProvider>
+      </Router>
   );
 }
 

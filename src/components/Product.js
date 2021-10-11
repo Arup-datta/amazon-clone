@@ -4,27 +4,32 @@ import "../styles/Product.css";
 
 import harryPotter from "../images/harryPotter.jpeg";
 
-function Product() {
+function Product({call, id, name, price, img, rating, type}) {
+
+    const upLift = () => {
+        call(id);
+    }
+
     return (
         <div className="product">
             <div className="product__info">
                 {/* Contains product information, price and rating */}
-                <p> Harry Potter and the philosopher's stone </p>
+                <p> {name} </p>
                 <p className="product__price"> 
-                    <small>$</small>
-                    <strong>10.50</strong>
+                    <small> $ </small>
+                    <strong> {price} </strong>
                 </p>
 
                 <p className="product__rating">
-                     ⭐
+                     {rating}🌟 stars
                 </p>
             </div>
             
-            <img src = {harryPotter} alt= "" />
-
-            <button className="product__button">
-                Add to basket
-            </button>
+            <img src = {img} alt= "" />
+            {
+                type == "add"? <button onClick = {upLift} className="product__button"> Add to basket </button> : <button onClick = {call} className="product__button">
+                Remove from basket </button>
+            }
         </div>
     )
 }
