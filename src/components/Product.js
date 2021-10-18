@@ -27,7 +27,8 @@ function Product({call, id, name, price, img, rating, type}) {
             
             <img src = {img} alt= "" />
             {
-                type == "add"? <button onClick = {upLift} className="product__button"> Add to basket </button> : <button onClick = {call} className="product__button">
+                // remove button is calling uplift, change it later
+                type == "add"? <button onClick = {upLift} className="product__button"> Add to basket </button> : <button onClick = {upLift} className="product__button">
                 Remove from basket </button>
             }
         </div>

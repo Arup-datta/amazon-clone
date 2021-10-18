@@ -11,21 +11,32 @@ function Home() {
 
     const {data, cardData} = useContext(ProductContext);
     const[state, setState] = data;
-    const[checkoutData, setCheckoutData] = cardData;
+    const[checkoutData, setCheckoutData] = cardData; /// locally set
 
     const addToCart = (id) => {
         /// preserve the existing checkoutData and then add new data to the list
-        console.log("Click hoy?");
-        console.log("ID!");
-        console.log(id);
-        console.log("printing done!");
-        /// add to checkout data
-        state.map(currentState => {
-            currentState.id == id ? setCheckoutData([...checkoutData, currentState]) : setCheckoutData(checkoutData)
-        })
+        //console.log("State: " + state.length);
+        // console.log("Click hoy?");
+        // console.log("ID!");
+        console.log("ID: " + id);
+        // console.log("printing done!");
+        // console.log(checkoutData.length);
+        // console.log("ta ache");
 
-        console.log(checkoutData.length);
-        console.log("YAAY");
+       // console.log(state)
+        /// add to checkout data
+       
+        state.map(currentState => (
+            ///{currentState.id == id ? setCheckoutData([...checkoutData, currentState]) : setCheckoutData(checkoutData)}
+           // console.log((currentState.id == id) + " " + id)
+            (currentState.id == id) ?  setCheckoutData([...checkoutData, currentState]) : setCheckoutData([...checkoutData])
+           // console.log(currentState)
+            ///setCheckoutData([currentState])
+        ))
+
+       // console.log(checkoutData.length);
+        console.log(checkoutData)
+       /// console.log("YAAY");
     }
 
     return (
@@ -55,6 +66,7 @@ function Home() {
 
                 <div className="home__row">
                     {/* {state.length} */}
+                    
                     {
                         state.map(currentState => (
                             <Product call = {addToCart} id = {currentState.id} name = {currentState.name} price = {currentState.price} img = {currentState.img} rating = {currentState.rating} type = {"add"}/>
