@@ -30,9 +30,11 @@ function ProductProvider(props) {
     const [state, setState] = useState(initialState); //// filled with dummy data --- all the data available
 
     const [checkoutData, setCheckoutData] = useState([]);
+
+    const [price, setPrice] = useState(0)
   
     return (
-        <ProductContext.Provider value = {{data : [state, setState], cardData: [checkoutData, setCheckoutData]}}>
+        <ProductContext.Provider value = {{data : [state, setState], cardData: [checkoutData, setCheckoutData], totalPrice: [price, setPrice]}}>
             {props.children}
         </ProductContext.Provider>
     )

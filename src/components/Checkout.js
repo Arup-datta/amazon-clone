@@ -11,18 +11,36 @@ import { ProductContext } from './ProductProvider';
 function Checkout() {
 
    //// const [state, setState] = useContext(ProductContext);
-    const {data, cardData} = useContext(ProductContext);
+    const {data, cardData, totalPrice} = useContext(ProductContext);
     const [checkoutData, setCheckoutData] = cardData;
+    const [price, setPrice] = totalPrice;
+
+    const removeFromCart = async (id) => {
+        let temp = checkoutData.find(myFunction1);
+
+        function myFunction1(cartItem) {
+            if(cartItem.id == id) {
+                return cartItem;
+            }
+        }
+
+        // console.log("Object that need to be deleted~")
+        // console.log(temp)
+
+        let ara = checkoutData.filter(myFunction);
+       /// setFinalData(ara);
+        function myFunction(cartItem) {
+            return cartItem.id != id
+        }
+
+        /// Reduce the price
+        setCheckoutData(ara);
+        setPrice(price - temp.price);
+    }
 
     // const removeFromCart = (id) => {
-    //     let ara = checkoutData.filter(myFunction);
-    //    /// setFinalData(ara);
-    //     setCheckoutData(ara);
-    //     function myFunction(cartItem) {
-    //         return cartItem.id != id;
-    //     }
+    //     console.log("Remove from Cart called")
     // }
-
 
     return (
         <div className = "checkout">
@@ -46,7 +64,7 @@ function Checkout() {
                     {
                         checkoutData.map(currentState => (
                            /// if(currentState.inBasket == 1) (
-                                <Product id = {currentState.id} name = {currentState.name} price = {currentState.price} rating = {currentState.rating} img = {currentState.img} type = "remove"/>
+                                <Product call = {removeFromCart} id = {currentState.id} name = {currentState.name} price = {currentState.price} rating = {currentState.rating} img = {currentState.img} type = "remove"/>
                            /// )
                         ))
                     }
@@ -55,7 +73,7 @@ function Checkout() {
             </div>
 
             <div className="checkout__right">
-                Total price: 0
+                Total price: {price}
                {/* total price will be here */}
             </div>
         </div>

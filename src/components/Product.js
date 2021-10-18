@@ -7,6 +7,7 @@ import harryPotter from "../images/harryPotter.jpeg";
 function Product({call, id, name, price, img, rating, type}) {
 
     const upLift = () => {
+        console.log("Uplift called!")
         call(id);
     }
 
